@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using GymWebApp.Models;
 using GymWebApp.Data;
+using Microsoft.AspNetCore.Authorization;
 
+[Authorize(Roles="Admin")]
 public class MembershipPlansController : Controller
 {
     private readonly ApplicationDbContext _context;
@@ -14,12 +16,14 @@ public class MembershipPlansController : Controller
     }
 
     // GET: MEMBERSHIPPLANS
+    [AllowAnonymous]
     public async Task<IActionResult> Index()    
     {
         return View(await _context.MembershipPlans.ToListAsync());
     }
 
     // GET: MEMBERSHIPPLANS/Details/5
+    [AllowAnonymous]
     public async Task<IActionResult> Details(int? id)
     {
         if (id == null)
