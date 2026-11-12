@@ -8,5 +8,7 @@ namespace GymWebApp.Data
     {
         public DbSet<MembershipPlan> MembershipPlans { get; set; }
         public DbSet<Trainer> Trainers { get; set; }
+        public DbSet<FitnessClass> FitnessClasses { get; set; }
+        public DbSet<ClassSession> ClassSessions { get; set; }
     }
 }
